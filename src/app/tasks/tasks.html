@@ -11,7 +11,7 @@
     @if(selectedUserTasks.length){ @for(task of selectedUserTasks;track
     task.id){
     <li>
-      <app-task [task]="task" (complete)="onCompleteTask($event)" />
+      <app-task [task]="task" />
     </li>
     } } @else {
     <h5>No Tasks</h5>

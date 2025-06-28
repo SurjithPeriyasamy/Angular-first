@@ -33,7 +33,7 @@ export class TasksService {
     return this.tasks.filter((task) => task.userId === userId);
   }
   deleteTask(taskId: string) {
-    return this.tasks.filter((task) => task.id !== taskId);
+    this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
   addTask(task: NewTask, userId: string) {
     this.tasks.unshift({
