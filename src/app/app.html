@@ -34,6 +34,11 @@
       />
     </li>
   </ul>
+  <app-tasks
+    [id]="selectedUser?.id"
+    [avatar]="selectedUser?.avatar"
+    [name]="selectedUser?.name"
+  ></app-tasks>
 </main>
 
 <router-outlet />
