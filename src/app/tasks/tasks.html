@@ -1,4 +1,17 @@
-<div>
-  <img [src]="imagePath" [alt]="name" />
-  <h4>{{ name }}</h4>
-</div>
+<section id="tasks">
+  <header>
+    <h2>{{ name }}'s Tasks</h2>
+    <menu><button>Add Taks</button></menu>
+  </header>
+
+  <ul>
+    @if(selectedUserTasks.length){ @for(task of selectedUserTasks;track
+    task.id){
+    <li>
+      <app-task [task]="task" />
+    </li>
+    } } @else {
+    <h5>No Tasks</h5>
+    }
+  </ul>
+</section>
