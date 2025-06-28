@@ -1,17 +1,27 @@
 <app-header />
 <main>
   <ul id="users">
-    @for(user of users;track user.id){
-    <li>
+    <!-- @for(user of users;track user.id){ -->
+    <li *ngFor="let user of users">
       <app-user [user]="user" (select)="onSelectUser($event)" />
     </li>
-    }
+    <!-- } -->
   </ul>
+
+  <!-- @if(selectedUser){ -->
   <app-tasks
-    [id]="selectedUser?.id"
-    [avatar]="selectedUser?.avatar"
-    [name]="selectedUser?.name"
-  ></app-tasks>
+    *ngIf="selectedUser; else fallback"
+    [id]="selectedUser.id"
+    [avatar]="selectedUser.avatar"
+    [name]="selectedUser.name"
+  />
+
+  <!-- }@else { -->
+  <ng-template #fallback>
+    <p>Select a user to see their tasks</p>
+  </ng-template>
+
+  <!-- } -->
 </main>
 
 <router-outlet />
