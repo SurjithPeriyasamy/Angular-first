@@ -1,16 +1,28 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Task } from '../task/task.model';
+import { FormsModule } from '@angular/forms';
+import { NewTask } from '../task/task.model';
 
 @Component({
   selector: 'app-new-task',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './new-task.html',
   styleUrl: './new-task.css',
 })
 export class NewTaskComponent {
-  task?: Task;
   @Output() close = new EventEmitter();
+  @Output() add = new EventEmitter<NewTask>();
+  enteredTitle: string = '';
+  enteredSummary: string = '';
+  enteredDate: string = '';
   onEndTask() {
     this.close.emit();
+  }
+  onSubmit() {
+    this.add.emit({
+      title: this.enteredTitle,
+      summary: this.enteredSummary,
+      dueDate: this.enteredDate,
+    });
   }
 }
