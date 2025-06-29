@@ -7,7 +7,8 @@ import { TasksComponent } from './tasks/tasks';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent],
+  standalone: false,
+  // imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
